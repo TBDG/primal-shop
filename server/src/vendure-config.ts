@@ -3,11 +3,28 @@ import {
     DefaultJobQueuePlugin,
     DefaultSearchPlugin,
     VendureConfig,
-} from '@vendure/core'; 
+} from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
+import dotenv from 'dotenv';
 import path from 'path';
+
+/**
+ * Getting .env setup
+ */
+const result: any = dotenv.config({
+    path: '../.env',
+}).parsed;
+let {
+    IS_PROD: isProd,
+    SUPER_ADMIN_NAME: superAdminName,
+    SUPER_ADMIN_PASS: superAdminPass,
+} = result;
+
+// Parsing values
+isProd = isProd === 'true';
+
 
 export const config: VendureConfig = {
     apiOptions: {
@@ -29,8 +46,8 @@ export const config: VendureConfig = {
     },
     authOptions: {
         superadminCredentials: {
-            identifier: 'superadmin',
-            password: 'superadmin',
+            identifier: superAdminName || 'superadmin',
+            password: superAdminPass || 'superadmin',
         },
     },
     dbConnectionOptions: {
@@ -63,7 +80,7 @@ export const config: VendureConfig = {
                 fromAddress: '"example" <noreply@example.com>',
                 verifyEmailAddressUrl: 'http://localhost:8080/verify',
                 passwordResetUrl: 'http://localhost:8080/password-reset',
-                changeEmailAddressUrl: 'http://localhost:8080/verify-email-address-change'
+                changeEmailAddressUrl: 'http://localhost:8080/verify-email-address-change',
             },
         }),
         AdminUiPlugin.init({ port: 3002 }),

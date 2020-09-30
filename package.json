@@ -1,0 +1,22 @@
+{
+  "name": "primal-shop",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TBDG/primal-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TBDG/primal-shop/issues"
+  },
+  "homepage": "https://github.com/TBDG/primal-shop#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

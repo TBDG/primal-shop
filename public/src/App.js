@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
+import './Footer/footer.js'
+import './Footer/_footerVars.js'
+import './Footer/footer.scss'
 
 function App() {
     return (
@@ -19,7 +22,8 @@ function App() {
                     Learn React
                 </a>
             </header>
-        </div>
+            <Footer socialMedia={socialMedia} nav={navEnglish} />
+        </div>   
     );
 }
 

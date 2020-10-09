@@ -2,8 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Footer from './Footer/footer.js';
-import footerVars from './Footer/_footerVars.js';
-import './Footer/_footer.scss';
 
 function App() {
     return (
@@ -22,7 +20,7 @@ function App() {
                     Learn React
                 </a>
             </header>
-            <Footer socialMedia={footerVars.socialMedia} nav={footerVars.navEnglish} />
+            <Footer />
         </div>   
     );
 }

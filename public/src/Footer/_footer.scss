@@ -1,4 +1,22 @@
+#footer {
+  width: 100%;
+  background-color: rgb(65, 206, 206);
+  font: sans-serif;
+
+  a {
+    color: rgb(49, 49, 49);
+  }
+}
+
+#footer-line-break {
+  margin: auto;
+  height: 2px;
+  width: 80%;
+  background-color: rgb(49, 49, 49);
+}
+
 ul#footer-nav li {
+  
   display:inline-block;
   *display:inline;
 }

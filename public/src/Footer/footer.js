@@ -1,3 +1,7 @@
+import React from 'react';
+
+
+
 const Footer = (props) => {
     
     return (
@@ -20,7 +24,8 @@ const Footer = (props) => {
                 <li><a href={props.socialMedia[2]} target="_blank">Instagram</a></li>
                 <li><a href={props.socialMedia[3]} target="_blank">Youtube</a></li>
             </ul>
-
         </div>
     )
 }
+
+export default Footer;

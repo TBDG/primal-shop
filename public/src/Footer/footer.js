@@ -43,24 +43,24 @@ let footerVars = {
 const Footer = () => {   
     return (
         <div id='footer'>
-            <ul id='footer-nav'>
-                <li><a href={footerVars.nav[0].link}>{footerVars.nav[0].name}</a></li>
-                <li><a href={footerVars.nav[1].link}>{footerVars.nav[1].name}</a></li>
-                <li><a href={footerVars.nav[2].link}>{footerVars.nav[2].name}</a></li>
-                <li><a href={footerVars.nav[3].link}>{footerVars.nav[3].name}</a></li>
-                <li><a href={footerVars.nav[4].link}>{footerVars.nav[4].name}</a></li>
-                <li><a href={footerVars.nav[5].link}>{footerVars.nav[5].name}</a></li>
-                <li><a href={footerVars.nav[6].link}>{footerVars.nav[6].name}</a></li>
-            </ul>
+            <p id='footer-nav'>
+                <a href={footerVars.nav[0].link}>{footerVars.nav[0].name}</a> • 
+                <a href={footerVars.nav[1].link}>{footerVars.nav[1].name}</a> • 
+                <a href={footerVars.nav[2].link}>{footerVars.nav[2].name}</a> • 
+                <a href={footerVars.nav[3].link}>{footerVars.nav[3].name}</a> • 
+                <a href={footerVars.nav[4].link}>{footerVars.nav[4].name}</a> • 
+                <a href={footerVars.nav[5].link}>{footerVars.nav[5].name}</a> • 
+                <a href={footerVars.nav[6].link}>{footerVars.nav[6].name}</a>
+            </p>
 
             <div id='footer-line-break'/>
 
-            <ul id='social-media'>
-                <li><a href={footerVars.socialMedia[0]} target="_blank">FaceBook</a></li>
-                <li><a href={footerVars.socialMedia[1]} target="_blank">Twitter</a></li>
-                <li><a href={footerVars.socialMedia[2]} target="_blank">Instagram</a></li>
-                <li><a href={footerVars.socialMedia[3]} target="_blank">Youtube</a></li>
-            </ul>
+            <p id='social-media'>
+                <a href={footerVars.socialMedia[0]} target="_blank">FaceBook • </a>
+                <a href={footerVars.socialMedia[1]} target="_blank">Twitter • </a>
+                <a href={footerVars.socialMedia[2]} target="_blank">Instagram • </a>
+                <a href={footerVars.socialMedia[3]} target="_blank">Youtube</a>
+            </p>
         </div>
     )
 }

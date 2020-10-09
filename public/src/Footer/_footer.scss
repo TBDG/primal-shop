@@ -1,7 +1,18 @@
+@media screen and (max-width: 1169px) {
+  #footer {
+    height: 0px;
+  }
+}
+
 #footer {
   width: 100%;
+  bottom: 0px;
   background-color: rgb(65, 206, 206);
-  font: sans-serif;
+
+  p {
+    color: rgb(49, 49, 49);
+    font-size: 18px;
+  }
 
   a {
     color: rgb(49, 49, 49);
@@ -14,14 +25,3 @@
   width: 80%;
   background-color: rgb(49, 49, 49);
 }
-
-ul#footer-nav li {
-  
-  display:inline-block;
-  *display:inline;
-}
-
-ul#social-media li {
-    display:inline-block;
-    *display:inline;
-  }

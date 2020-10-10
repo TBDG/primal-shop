@@ -6,7 +6,11 @@
   "scripts": {
     "start": "concurrently npm:start:*",
     "start:public": "cd ./public && npm start",
-    "start:server": "cd ./server && npm start"
+    "start:server": "cd ./server && npm start",
+    "setup": "npm i && npm run setup:server && npm run setup:public",
+    "setup:public": "cd ./public && npm i",
+    "setup:server": "cd ./server && npm i",
+    "postinstall": "npm run setup:server && npm run setup:public"
   },
   "repository": {
     "type": "git",

@@ -14,10 +14,11 @@ function App() {
         <div className="App">
             <div> Header space</div>
             {/*<Header />*/}
-            <Footer />
+            
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
             <div> Footer space</div>
+            <Footer />
         </div>
 
     );

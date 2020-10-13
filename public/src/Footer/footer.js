@@ -64,7 +64,7 @@ let footerVars = {
 };
 
 const Footer = () => {   
-    const itemMap = (arr, target, icon) => {
+    const itemMap = (arr, target) => {
         if (target) {
             return arr.map(i => <a href={i.link} target='_blank'>{i.name}</a>)
         }
@@ -80,7 +80,7 @@ const Footer = () => {
             <div id='footer-line-break'/>
 
             <p id='social-media'>
-                {itemMap(footerVars.socialMedia, true, true)}
+                {itemMap(footerVars.socialMedia, true)}
             </p>
         </div>
     )

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Footer from './Footer/footer.js';
 
 // Icon example will be removed later
 import { FaFacebookSquare } from 'react-icons/fa';
@@ -13,11 +14,13 @@ function App() {
         <div className="App">
             <div> Header space</div>
             {/*<Header />*/}
-            {/*<Footer />*/}
+            
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
             <div> Footer space</div>
+            <Footer />
         </div>
+
     );
 }
 

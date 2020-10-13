@@ -1,13 +1,19 @@
 import React from 'react';
+import {MdSearch, GiHamburgerMenu, BiCart} from "react-icons/all";
+import logo from '../Z.png'
 
 
 function Header() {
     // Variables used in the header
-    const logo = 'Logo'
+    const home = 'Home',
+        categories = 'Categories',
+        myAccount = 'My Account',
+        faq = 'F.A.Q.',
+        contact = 'Contact'
 
     // function to collapse the hamburger
     const showMenu = () => {
-        var x = document.getElementById('mobile-links')
+        var x = document.getElementById('mobile-nav')
         console.log(x, 'what is x')
         if (x.style.display === 'block') {
             x.style.display = 'none'
@@ -18,17 +24,34 @@ function Header() {
 
     return (
         <div className="Header">
-            <div className='mobile-header'> Header spacek;lajsd.lfkj;pasldkjf
-                <div className='hamburger'>
-                    <div className='mobile-nav'>
-
+            <div className='mobile-header'>
+                <div className='left-wrapper'>
+                    <div className='hamburger-wrapper'>
+                        <GiHamburgerMenu
+                            className='hamburger'
+                            id='hambuger'
+                            onClick={showMenu}>
+                        </GiHamburgerMenu>
                     </div>
+                    <div className='mobile-logo'>
+                        <a onClick={showMenu}>
+                            <img src={logo} alt='logo' className='logo'/>
+                        </a>
+                    </div>
+                    <MdSearch className='mobile-search'></MdSearch>
                 </div>
-                <div className='mobile-logo'>{logo}</div>
-                <div className='mobile-search'></div>
-                <div className='mobile-cart'></div>
+                <div className='right-wrapper'>
+                    <BiCart className='mobile-cart'></BiCart>
+                </div>
             </div>
-
+            <div className='mobile-nav'
+                 id='mobile-nav'>
+                {home}
+                {categories}
+                {myAccount}
+                {faq}
+                {contact}
+            </div>
         </div>
     );
 }

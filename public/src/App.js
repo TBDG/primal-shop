@@ -12,8 +12,7 @@ function App() {
     };
     return (
         <div className="App">
-            <div> Header space</div>
-            {/*<Header />*/}
+            <Header />
             {/*<Footer />*/}
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>

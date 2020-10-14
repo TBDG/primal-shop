@@ -1,5 +1,5 @@
 import React from 'react';
-import {MdSearch, GiHamburgerMenu, BiCart} from "react-icons/all";
+import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
 import logo from '../Z.png'
 
 
@@ -22,6 +22,16 @@ function Header() {
         }
     }
 
+    const showInput = () => {
+        var x = document.getElementById('mobile-search-field')
+        console.log(x, 'what is x')
+        if (x.style.display === 'block') {
+            x.style.display = 'none'
+        } else {
+            x.style.display = 'block'
+        }
+    }
+
     return (
         <div className="Header">
             <div className='mobile-header'>
@@ -29,16 +39,23 @@ function Header() {
                     <div className='hamburger-wrapper'>
                         <GiHamburgerMenu
                             className='hamburger'
-                            id='hambuger'
                             onClick={showMenu}>
                         </GiHamburgerMenu>
                     </div>
+                    <form className='mobile-search-form'>
+                        <input className='mobile-search-field'
+                               id='mobile-search-field'/>
+                        <input type='submit' />
+                        <button className='mobile-search-close'>
+                            <GrFormClose></GrFormClose> </button>
+                    </form>
                     <div className='mobile-logo'>
                         <a onClick={showMenu}>
                             <img src={logo} alt='logo' className='logo'/>
                         </a>
                     </div>
-                    <MdSearch className='mobile-search'></MdSearch>
+                    <MdSearch className='mobile-search'
+                              onClick={showInput}></MdSearch>
                 </div>
                 <div className='right-wrapper'>
                     <BiCart className='mobile-cart'></BiCart>

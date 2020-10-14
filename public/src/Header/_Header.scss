@@ -36,6 +36,11 @@
   @include flexCenter(row);
 }
 
+.hidden-input {
+  display: none;
+  width: 250px;
+}
+
 .mobile-logo {
   height: 100%;
   width: 100px;

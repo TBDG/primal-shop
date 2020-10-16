@@ -1,26 +1,42 @@
-import React from 'react';
 import './App.scss';
 import Footer from './Footer/footer.js';
+import React, { useState } from 'react';
+import { getContent } from './content';
 
 // Icon example will be removed later
 import { FaFacebookSquare } from 'react-icons/fa';
 
+
 function App() {
+    const { general } = getContent();
+
+    const [showDiv, setShowDiv] = useState(false);
+
     let styles = {
         color: 'black',
-        'font-size': 30,
+        'fontSize': 30,
     };
+
+    let func = () => {
+        setShowDiv(!showDiv);
+    };
+
     return (
         <div className="App">
             <div> Header space</div>
             {/*<Header />*/}
-            
+            {showDiv ? <div>
+                <p>{general.accept}</p>
+                <p>{general.contactEmail}</p>
+            </div> : null}
+
+            <button onClick={() => func()}>change</button>
+
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
             <div> Footer space</div>
             <Footer />
         </div>
-
     );
 }
 

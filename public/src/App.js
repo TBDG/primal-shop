@@ -1,4 +1,5 @@
 import './App.scss';
+import Footer from './Footer/footer.js';
 import React, { useState } from 'react';
 import { getContent } from './content';
 
@@ -33,8 +34,8 @@ function App() {
 
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
-            {/*<Footer />*/}
             <div> Footer space</div>
+            <Footer />
         </div>
     );
 }

@@ -23,7 +23,7 @@ function Header() {
     }
 
     const showInput = () => {
-        var x = document.getElementById('mobile-search-field')
+        var x = document.getElementById('mobile-search-form')
         console.log(x, 'what is x')
         if (x.style.display === 'block') {
             x.style.display = 'none'

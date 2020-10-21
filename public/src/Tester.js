@@ -10,10 +10,8 @@ function Tester() {
 
     return (
         <div className="Tester">
-            <h1> Counter {count} </h1>
             <button onClick={()=> dispatch(increment(count))}>+</button>
             <button onClick={() => dispatch(decrement(count))}>-</button>
-
         </div>
 
     );

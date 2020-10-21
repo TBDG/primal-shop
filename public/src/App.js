@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Footer from './Footer/footer.js';
-import {useDispatch, useSelector} from "react-redux";
-import {decrement, increment} from "./redux/reducer";
+import { useSelector } from "react-redux";
 import Tester from "./Tester";
 import { useState } from 'react';
 import { getContent } from './content';
@@ -21,9 +20,6 @@ function App() {
         'fontSize': 30,
     };
     const count = useSelector(state => state.count);
-    const dispatch = useDispatch();
-
-
 
 
     let func = () => {
@@ -34,9 +30,6 @@ function App() {
         <div className="App">
             <div> Header space</div>
             {/*<Header />*/}
-            <h1> Counter {count} </h1>
-            <button onClick={()=> dispatch(increment(count))}>+</button>
-            <button onClick={() => dispatch(decrement(count))}>-</button>
 
             {showDiv ? <div>
                 <p>{general.accept}</p>
@@ -48,6 +41,8 @@ function App() {
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
             <div> Footer space</div>
+
+            <h1> Counter {count} </h1>
             <Tester/>
             <Footer />
         </div>

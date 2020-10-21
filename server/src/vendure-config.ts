@@ -51,10 +51,12 @@ export const config: VendureConfig = {
         },
     },
     dbConnectionOptions: {
-        type: 'sqlite',
+        type: 'sqljs',
         synchronize: false, // not working with SQLite/SQL.js, see https://github.com/typeorm/typeorm/issues/2576
         logging: false,
-        database: path.join(__dirname, '../vendure.sqlite'),
+        database: new Uint8Array([]),
+        location: path.join(__dirname, '../vendure.sqlite'),
+        autoSave: true,
         migrations: [path.join(__dirname, '../migrations/*.ts')],
     },
     paymentOptions: {

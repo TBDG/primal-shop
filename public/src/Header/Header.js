@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
 import logo from '../Z.png'
 
 
 function Header() {
+    const [search, setSearch] = useState("")
     // Variables used in the header
     const home = 'Home',
         categories = 'Categories',
@@ -11,10 +12,9 @@ function Header() {
         faq = 'F.A.Q.',
         contact = 'Contact'
 
-    // function to collapse the hamburger
+    // function to display/collapse the hamburger menu
     const showMenu = () => {
         var x = document.getElementById('mobile-nav')
-        console.log(x, 'what is x')
         if (x.style.display === 'block') {
             x.style.display = 'none'
         } else {
@@ -22,14 +22,20 @@ function Header() {
         }
     }
 
+    //function to display/collapse the search input
     const showInput = () => {
         var x = document.getElementById('mobile-search-form')
-        console.log(x, 'what is x')
         if (x.style.display === 'block') {
             x.style.display = 'none'
         } else {
             x.style.display = 'block'
         }
+    }
+
+    //search function
+    const doSearch = (e) => {
+        e.preventDefault()
+        console.log(search)
     }
 
     return (
@@ -42,18 +48,26 @@ function Header() {
                             onClick={showMenu}>
                         </GiHamburgerMenu>
                     </div>
-                    <form className='mobile-search-form'>
-                        <input className='mobile-search-field'
-                               id='mobile-search-field'/>
-                        <input type='submit' />
-                        <button className='mobile-search-close'>
-                            <GrFormClose></GrFormClose> </button>
-                    </form>
                     <div className='mobile-logo'>
                         <a onClick={showMenu}>
-                            <img src={logo} alt='logo' className='logo'/>
+                            <img src={logo}
+                                 alt='logo'
+                                 className='logo'/>
                         </a>
                     </div>
+                    <form className='mobile-search-form'
+                          id='mobile-search-form'
+                          onSubmit={doSearch}>
+                        <input className='mobile-search-field'
+                               value={search}
+                               onChange={(e) => setSearch(e.target.value)}
+                        />
+                        <button className='mobile-search-submit'
+                            type='submit'><MdSearch></MdSearch></button>
+                        <button className='mobile-search-close'
+                                onClick={showInput}>
+                            <GrFormClose></GrFormClose></button>
+                    </form>
                     <MdSearch className='mobile-search'
                               onClick={showInput}></MdSearch>
                 </div>

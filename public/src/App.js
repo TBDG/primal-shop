@@ -1,6 +1,9 @@
+import React from 'react';
 import './App.scss';
 import Footer from './Footer/footer.js';
-import React, { useState } from 'react';
+import { useSelector } from "react-redux";
+import Tester from "./Tester";
+import { useState } from 'react';
 import { getContent } from './content';
 
 // Icon example will be removed later
@@ -16,6 +19,8 @@ function App() {
         color: 'black',
         'fontSize': 30,
     };
+    const count = useSelector(state => state.count);
+
 
     let func = () => {
         setShowDiv(!showDiv);
@@ -25,6 +30,7 @@ function App() {
         <div className="App">
             <div> Header space</div>
             {/*<Header />*/}
+
             {showDiv ? <div>
                 <p>{general.accept}</p>
                 <p>{general.contactEmail}</p>
@@ -35,8 +41,12 @@ function App() {
             {/*TODO Remove later*/}
             <FaFacebookSquare style={styles}></FaFacebookSquare>
             <div> Footer space</div>
+
+            <h1> Counter {count} </h1>
+            <Tester/>
             <Footer />
         </div>
+
     );
 }
 

@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
 import logo from '../Z.png'
+import { getContent } from "../content";
 
 
 function Header() {
     const [search, setSearch] = useState("")
     // Variables used in the header
-    const home = 'Home',
-        categories = 'Categories',
-        myAccount = 'My Account',
-        faq = 'F.A.Q.',
-        contact = 'Contact'
+    const { header } = getContent();
 
     // function to display/collapse the hamburger menu
     const showMenu = () => {
@@ -77,11 +74,11 @@ function Header() {
             </div>
             <div className='mobile-nav'
                  id='mobile-nav'>
-                {home}
-                {categories}
-                {myAccount}
-                {faq}
-                {contact}
+                {header.home}
+                {header.categories}
+                {header.myAccount}
+                {header.faq}
+                {header.contact}
             </div>
         </div>
     );

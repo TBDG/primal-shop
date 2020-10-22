@@ -1,0 +1,80 @@
+.mobile-header {
+  background-color: $secondaryColor;
+  color: $mainColor ;
+  height: 10%;
+
+  @include flexCenter(row);
+  justify-content: space-between;
+  font-size: 25px;
+  padding: 5px;
+  border-bottom: #01adef 5px solid;
+}
+
+.left-wrapper {
+  @include flexCenter(row);
+}
+
+.hamburger-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.hamburger {
+  font-size: 35px;
+}
+
+.mobile-nav {
+  @include flexCenter(column);
+  display: none;
+  position: absolute;
+  width: 100vw;
+  background-color: #e6e6e3;
+  color: black;
+  overflow: visible;
+}
+
+.right-wrapper {
+  @include flexCenter(row);
+}
+
+.mobile-search-form {
+  display: none;
+  height: 50px;
+}
+
+.mobile-search-field {
+  width: 245px;
+}
+
+.mobile-search-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  padding: 1px 4px;
+  background-color: $mainColor;
+}
+
+.mobile-search-submit {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  border: none;
+  padding: 1px 4px;
+  background-color: $mainColor;
+}
+
+.mobile-logo {
+  height: 100%;
+  width: 100px;
+  margin-bottom: 5px;
+  border-left: #01adef solid 1px;
+  border-right: #01adef solid 1px;
+}
+
+.logo {
+  width: 88px;
+}
+
+.mobile-search {
+  margin-left: 10px;
+}

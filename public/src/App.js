@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Header from "./Header/Header";
 import Footer from './Footer/footer.js';
 import { useSelector } from "react-redux";
 import Tester from "./Tester";
@@ -28,8 +29,7 @@ function App() {
 
     return (
         <div className="App">
-            <div> Header space</div>
-            {/*<Header />*/}
+            <Header />
 
             {showDiv ? <div>
                 <p>{general.accept}</p>

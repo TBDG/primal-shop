@@ -1,5 +1,6 @@
 // Every new area needs an import
 import general from './general';
+import header from "./header";
 
 class Content {
     constructor() {
@@ -10,6 +11,7 @@ class Content {
         return {
             // Add new areas here also
             general,
+            header,
         };
     }
 

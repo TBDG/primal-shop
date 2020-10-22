@@ -3,6 +3,8 @@
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+@import "variables_&_mixins";
+@import '/Header/_Header.scss';
 
 
 .App {

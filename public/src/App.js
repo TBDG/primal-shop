@@ -1,50 +1,30 @@
 import React from 'react';
 import './App.scss';
-import Header from "./Header/Header";
-import Footer from './Footer/footer.js';
-import { useSelector } from "react-redux";
-import Tester from "./Tester";
-import { useState } from 'react';
-import { getContent } from './content';
+import {Route, BrowserRouter as Router, Redirect} from 'react-router-dom'
 
-// Icon example will be removed later
-import { FaFacebookSquare } from 'react-icons/fa';
+
+import Header from "./components/Header/Header";
+import Footer from './components/Footer/Footer.js';
+import Tester from "./Tester";
+import Home from './Home/Home';
 
 
 function App() {
-    const { general } = getContent();
-
-    const [showDiv, setShowDiv] = useState(false);
-
-    let styles = {
-        color: 'black',
-        'fontSize': 30,
-    };
-    const count = useSelector(state => state.count);
-
-
-    let func = () => {
-        setShowDiv(!showDiv);
-    };
 
     return (
         <div className="App">
-            <Header />
+            <div className="app-main">
+                <Header />
+                <Router>
+                    <Redirect from="/" to="/home/"/>
+                    <Route path="/home/" component={Home}/>
 
-            {showDiv ? <div>
-                <p>{general.accept}</p>
-                <p>{general.contactEmail}</p>
-            </div> : null}
-
-            <button onClick={() => func()}>change</button>
-
-            {/*TODO Remove later*/}
-            <FaFacebookSquare style={styles}></FaFacebookSquare>
-            <div> Footer space</div>
-
-            <h1> Counter {count} </h1>
-            <Tester/>
-            <Footer />
+                    <Route path="/test/" component={Tester}/>
+                </Router>
+            </div>
+            <div className="app-footer">
+                <Footer />
+            </div>
         </div>
 
     );

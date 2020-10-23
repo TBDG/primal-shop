@@ -1,5 +1,4 @@
 import React from 'react';
-import './_footer.scss';
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { AiOutlineTwitter } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
@@ -47,15 +46,15 @@ let footerVars = {
         {
             name: (<AiOutlineFacebook style={styles}/>),
             link: '#',
-        },        
+        },
         {
             name: (<AiOutlineTwitter style={styles}/>),
             link: '#',
-        },        
+        },
         {
             name: (<AiOutlineInstagram style={styles}/>),
             link: '#',
-        },        
+        },
         {
             name: (<AiOutlineYoutube style={styles}/>),
             link: '#',
@@ -63,7 +62,7 @@ let footerVars = {
     ],
 };
 
-const Footer = () => {   
+const Footer = () => {
     const itemMap = (arr, target) => {
         if (target) {
             return arr.map(i => <a href={i.link} target='_blank'>{i.name}</a>)
@@ -79,9 +78,9 @@ const Footer = () => {
 
             <div id='footer-line-break'/>
 
-            <p id='social-media'>
+            <div id='social-media'>
                 {itemMap(footerVars.socialMedia, true)}
-            </p>
+            </div>
         </div>
     )
 }

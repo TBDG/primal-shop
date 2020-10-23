@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
-import logo from '../Z.png'
-import { getContent } from "../content";
+import logo from '../../Z.png'
+import { getContent } from "../../content";
 
 
 function Header() {

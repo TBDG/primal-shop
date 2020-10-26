@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
+import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose, FaPhoneAlt, MdEmail, MdPerson} from "react-icons/all";
 import logo from '../../Z.png'
-import { getContent } from "../../content";
+import {getContent} from "../../content";
 
 
 function Header() {
     const [search, setSearch] = useState("")
     // Variables used in the header
-    const { header } = getContent();
+    const {header} = getContent();
 
     // function to display/collapse the hamburger menu
     const showMenu = () => {
@@ -60,7 +60,7 @@ function Header() {
                                onChange={(e) => setSearch(e.target.value)}
                         />
                         <button className='mobile-search-submit'
-                            type='submit'><MdSearch></MdSearch></button>
+                                type='submit'><MdSearch></MdSearch></button>
                         <button className='mobile-search-close'
                                 onClick={showInput}>
                             <GrFormClose></GrFormClose></button>
@@ -79,6 +79,49 @@ function Header() {
                 {header.myAccount}
                 {header.faq}
                 {header.contact}
+            </div>
+            <div className='desktop-header'>
+                <div className='container'>
+                    <div className='row v-align'>
+                        <div className='logo col-3'>
+                            <img src={logo}/>
+                        </div>
+                        <div className='info-and-nav col-9'>
+                            <div className='row'>
+                                <div className='v-align col-12'>
+                                    <span><MdEmail/> {header.email}</span>
+                                    <span><FaPhoneAlt/> {header.phone}</span>
+                                    <span><MdPerson/> {header.myAccount}</span>
+                                    |<span><BiCart/></span>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='v-align col-12'>
+                                    <div className='desktop-nav'>
+                                        <ul>
+                                        <li><a>{header.home} </a></li>
+                                        <li><a>{header.categories} </a></li>
+                                        <li><a>{header.myAccount} </a></li>
+                                        <li><a>{header.faq} </a></li>
+                                        <li><a>{header.contact} </a></li>
+                                        <li>
+                                            <form className='desktop-search-form'
+                                              onSubmit={doSearch}>
+                                            <input className='desktop-search-field'
+                                                   value={search}
+                                                   onChange={(e) => setSearch(e.target.value)}
+                                            />
+                                            <button className='mobile-search-submit'
+                                                    type='submit'><MdSearch/></button>
+                                            </form>
+                                        </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

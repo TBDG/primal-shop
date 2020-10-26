@@ -9,6 +9,7 @@ let styles = {
     'margin-left': 5,
     'margin-right': 5,
     'margin-bottom': 5,
+    'color': '#ffffff',
 };
 
 let footerVars = {
@@ -28,10 +29,6 @@ let footerVars = {
         {
             name: 'Our Facilities',
             link: '#'
-        },
-        {
-            name: 'Contact Us',
-            link: '#',
         },
         {
             name: 'Create Account',
@@ -65,15 +62,22 @@ let footerVars = {
 const Footer = () => {
     const itemMap = (arr, target) => {
         if (target) {
-            return arr.map(i => <a href={i.link} target='_blank'>{i.name}</a>)
+            return arr.map(e => <a href={e.link} target='_blank'>{e.name}</a>)
         }
-        return arr.map(i => <a href={i.link}> • {i.name}</a>)
+        return arr.map((e, i) => {
+            if (i === 0) {
+                return <a href={e.link}>{e.name}</a>;
+            } else { return <a href={e.link}> • {e.name}</a>};
+        })
     }
 
     return (
         <div id='footer'>
             <p id='footer-nav'>
                 {itemMap(footerVars.nav)}
+            </p>
+            <p id='contact-us'>
+                {itemMap([{name: 'Contact Us', link: '#',}])}
             </p>
 
             <div id='footer-line-break'/>

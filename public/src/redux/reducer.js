@@ -1,9 +1,11 @@
 const initialState = {
-    count: 0
+    count: 0,
+    categories: [],
 };
 
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
+const ADD_CATEGORIES = 'ADD_CATEGORIES';
 
 //actions
 export const increment = (count) => {
@@ -20,13 +22,22 @@ export const decrement = (count) => {
     }
 }
 
+export const addCategories = (categories) => {
+    return {
+        type: ADD_CATEGORIES,
+        payload: categories,
+    }
+}
+
 //reducer
 export default function (state = initialState, action) {
     switch (action.type) {
         case INCREMENT:
-            return {...state, count:action.payload}
+            return {...state, count: action.payload}
         case DECREMENT:
-            return {...state, count:action.payload}
+            return {...state, count: action.payload}
+        case ADD_CATEGORIES:
+            return {...state, categories: action.payload}
         default:
             return state
     }

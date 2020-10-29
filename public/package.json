@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.2",
     "cra-template": "1.0.3",
     "cross-env": "^7.0.2",

@@ -4,13 +4,6 @@ import { AiOutlineTwitter } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineYoutube } from 'react-icons/ai';
 
-let styles = {
-    'font-size': 30,
-    'margin-left': 5,
-    'margin-right': 5,
-    'margin-bottom': 5,
-};
-
 let footerVars = {
     nav: [
         {
@@ -30,10 +23,6 @@ let footerVars = {
             link: '#'
         },
         {
-            name: 'Contact Us',
-            link: '#',
-        },
-        {
             name: 'Create Account',
             link: '#',
         },
@@ -44,19 +33,19 @@ let footerVars = {
     ],
     socialMedia: [
         {
-            name: (<AiOutlineFacebook style={styles}/>),
+            name: (<AiOutlineFacebook className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineTwitter style={styles}/>),
+            name: (<AiOutlineTwitter className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineInstagram style={styles}/>),
+            name: (<AiOutlineInstagram className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineYoutube style={styles}/>),
+            name: (<AiOutlineYoutube className="footer-icon"/>),
             link: '#',
         },
     ],
@@ -65,15 +54,22 @@ let footerVars = {
 const Footer = () => {
     const itemMap = (arr, target) => {
         if (target) {
-            return arr.map(i => <a href={i.link} target='_blank'>{i.name}</a>)
+            return arr.map(e => <a href={e.link} rel="noopener noreferrer" target='_blank'>{e.name}</a>)
         }
-        return arr.map(i => <a href={i.link}> • {i.name}</a>)
+        return arr.map((e, i) => {
+            if (i === 0) {
+                return <a href={e.link}>{e.name}</a>;
+            } else { return <a href={e.link}> • {e.name}</a>};
+        })
     }
 
     return (
         <div id='footer'>
             <p id='footer-nav'>
                 {itemMap(footerVars.nav)}
+            </p>
+            <p id='contact-us'>
+                {itemMap([{name: 'Contact Us', link: '#',}])}
             </p>
 
             <div id='footer-line-break'/>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from './redux/reducer';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 
 function Tester() {

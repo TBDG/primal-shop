@@ -4,14 +4,6 @@ import { AiOutlineTwitter } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineYoutube } from 'react-icons/ai';
 
-let styles = {
-    'font-size': 30,
-    'margin-left': 5,
-    'margin-right': 5,
-    'margin-bottom': 5,
-    'color': '#ffffff',
-};
-
 let footerVars = {
     nav: [
         {
@@ -41,19 +33,19 @@ let footerVars = {
     ],
     socialMedia: [
         {
-            name: (<AiOutlineFacebook style={styles}/>),
+            name: (<AiOutlineFacebook className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineTwitter style={styles}/>),
+            name: (<AiOutlineTwitter className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineInstagram style={styles}/>),
+            name: (<AiOutlineInstagram className="footer-icon"/>),
             link: '#',
         },
         {
-            name: (<AiOutlineYoutube style={styles}/>),
+            name: (<AiOutlineYoutube className="footer-icon"/>),
             link: '#',
         },
     ],
@@ -62,7 +54,7 @@ let footerVars = {
 const Footer = () => {
     const itemMap = (arr, target) => {
         if (target) {
-            return arr.map(e => <a href={e.link} target='_blank'>{e.name}</a>)
+            return arr.map(e => <a href={e.link} rel="noopener noreferrer" target='_blank'>{e.name}</a>)
         }
         return arr.map((e, i) => {
             if (i === 0) {

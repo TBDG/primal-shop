@@ -1,39 +1,39 @@
 import React, {useState} from 'react';
-import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from "react-icons/all";
-import logo from '../../Z.png'
-import { getContent } from "../../content";
+import {MdSearch, GiHamburgerMenu, BiCart, GrFormClose} from 'react-icons/all';
+import logo from '../../Z.png';
+import {getContent} from '../../content';
 
 
 function Header() {
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState('');
     // Variables used in the header
-    const { header } = getContent();
+    const {header} = getContent();
 
     // function to display/collapse the hamburger menu
     const showMenu = () => {
-        var x = document.getElementById('mobile-nav')
+        var x = document.getElementById('mobile-nav');
         if (x.style.display === 'block') {
-            x.style.display = 'none'
+            x.style.display = 'none';
         } else {
-            x.style.display = 'block'
+            x.style.display = 'block';
         }
-    }
+    };
 
     //function to display/collapse the search input
     const showInput = () => {
-        var x = document.getElementById('mobile-search-form')
+        var x = document.getElementById('mobile-search-form');
         if (x.style.display === 'block') {
-            x.style.display = 'none'
+            x.style.display = 'none';
         } else {
-            x.style.display = 'block'
+            x.style.display = 'block';
         }
-    }
+    };
 
     //search function
     const doSearch = (e) => {
-        e.preventDefault()
-        console.log(search)
-    }
+        e.preventDefault();
+        console.log(search);
+    };
 
     return (
         <div className="Header">
@@ -60,13 +60,13 @@ function Header() {
                                onChange={(e) => setSearch(e.target.value)}
                         />
                         <button className='mobile-search-submit'
-                            type='submit'><MdSearch></MdSearch></button>
+                                type='submit'><MdSearch></MdSearch></button>
                         <button className='mobile-search-close'
                                 onClick={showInput}>
                             <GrFormClose></GrFormClose></button>
                     </form>
                     <MdSearch className='mobile-search'
-                              onClick={showInput}></MdSearch>
+                              onClick={showInput}/>
                 </div>
                 <div className='right-wrapper'>
                     <BiCart className='mobile-cart'></BiCart>

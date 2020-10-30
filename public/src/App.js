@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 import {Route, BrowserRouter as Router, Redirect, Switch} from 'react-router-dom'
 
-
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import Tester from "./Tester";
@@ -16,7 +15,7 @@ function App() {
     return (
         <div className="App">
             <div className="app-main">
-                <Header />
+                <Header/>
                 <Router>
                     <Switch>    
                         <Route
@@ -37,10 +36,9 @@ function App() {
                 </Router>
             </div>
             <div className="app-footer">
-                <Footer />
+                <Footer/>
             </div>
         </div>
-
     );
 }
 

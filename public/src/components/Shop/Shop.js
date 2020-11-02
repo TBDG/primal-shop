@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import http from "../../services/http";
+import {useSelector} from "react-redux";
+
 
 function Shop() {
 
-    const [categories, setCategories] = useState([]);
-
-    useEffect( () => {
-        http.getCategories()
-        .then( (res) => setCategories(res.data) )
-        .catch( (err) => console.log(err) )
-    }, [])
+    
+    let categories = useSelector(state => state.categories)
+    
+    if (categories.length === 0) {
+        http.getShopCategories();
+    }
+    console.log(categories);
 
 
 
@@ -19,7 +21,7 @@ function Shop() {
     
         <div className="col-xs-12 col-xl-4" key="" onClick="">
             <div className="card-shop">
-                <img src={{}}/>
+                <img src=""/>
                 <h3>This is a category of fish</h3>
             </div> {/* End of Card */}
         </div>

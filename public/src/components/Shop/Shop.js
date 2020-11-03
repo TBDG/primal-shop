@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import http from "../../services/http";
 import {useSelector} from "react-redux";
+import {withRouter} from "react-router-dom";
 
 
-function Shop() {
+function Shop(props) {
 
-    
+    console.log(props)
+
+
     let categories = useSelector(state => state.categories)
     
     if (categories.length === 0) {
@@ -19,10 +22,10 @@ function Shop() {
         console.log(aCategory)
         return (
     
-        <div className="col-xs-12 col-xl-4" key="" onClick="">
+        <div className="col-xs-12 col-xl-4" key={aCategory.id} onClick={() => props.history.push(`/category/${aCategory.id}`)}>
             <div className="card-shop">
-                <img src=""/>
-                <h3>This is a category of fish</h3>
+                <img src={aCategory.featuredAsset.source}/>
+                <h3>{aCategory.name}</h3>
             </div> {/* End of Card */}
         </div>
              
@@ -46,4 +49,6 @@ function Shop() {
     )
 }
 
-export default Shop
+// giving Shop access to the React Router props - had to force it because for some reason it wasnt working alone with being a child of the Router and Switch statement - and we are not using hooks. If we used hooks we wouldnt need to use withRouter.
+export default withRouter(Shop) 
+

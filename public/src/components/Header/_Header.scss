@@ -1,4 +1,5 @@
-.mobile-header {
+/* ====================== Mobile styles ========================== */
+.desktop-header {
   background-color: $secondaryColor;
   color: $mainColor ;
   height: 10%;
@@ -7,52 +8,57 @@
   justify-content: space-between;
   font-size: 25px;
   padding: 5px;
-  border-bottom: #01adef 5px solid;
-}
-
-.left-wrapper {
-  @include flexCenter(row);
+  border-bottom: $highlightColor 5px solid;
 }
 
 .hamburger-wrapper {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .hamburger {
   font-size: 35px;
 }
 
-.mobile-nav {
-  @include flexCenter(column);
+.info {
+  display: none;
+}
+
+.cart {
+  position: absolute;
+  right: 5px;
+}
+.desktop-nav {
   display: none;
   position: absolute;
-  width: 100vw;
+  left: 5px;
+  width: 100%;
   background-color: #e6e6e3;
   color: black;
   overflow: visible;
 }
+//
+//.right-wrapper {
+//  @include flexCenter(row);
+//}
 
-.right-wrapper {
-  @include flexCenter(row);
-}
-
-.mobile-search-form {
-  display: none;
-  height: 50px;
-}
-
-.mobile-search-field {
-  width: 245px;
-}
-
-.mobile-search-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  border: none;
-  padding: 1px 4px;
-  background-color: $mainColor;
-}
+//.mobile-search-form {
+//  display: none;
+//  height: 50px;
+//}
+//
+//.mobile-search-field {
+//  width: 245px;
+//}
+//
+//.mobile-search-close {
+//  position: absolute;
+//  top: 10px;
+//  right: 12px;
+//  border: none;
+//  padding: 1px 4px;
+//  background-color: $mainColor;
+//}
 
 .mobile-search-submit {
   position: absolute;
@@ -63,18 +69,77 @@
   background-color: $mainColor;
 }
 
-.mobile-logo {
-  height: 100%;
-  width: 100px;
+.logo img {
+  width: 100%;
   margin-bottom: 5px;
   border-left: #01adef solid 1px;
   border-right: #01adef solid 1px;
 }
 
-.logo {
-  width: 88px;
-}
+/* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
+@media only screen and (min-width: 1200px) {
+  .desktop-header {
+    background-color: $secondaryColor;
+    color: $mainColor;
+    font-size: 22px;
+    .logo img{
+      width: 80%;
+    }
+    span {
+      padding: 10px 20px;
+    }
+    a {
+      margin: 10px;
+    }
+    a:hover{
+     border-bottom: 2px solid;
+    }
+    .info {
+      display: inherit;
+    }
+    .cart {
+      position: inherit;
+      border-left: 2px solid $mainColor;
+    }
+    .desktop-nav {
+      display: inherit;
+      position: inherit;
+      border-top: 1px solid $highlightColor;
+      padding-top: 10px;
+      background-color: $secondaryColor;
+      color: $mainColor;
+      ul {
+        list-style-type: none;
+        padding-left: 0px;
+        li {
+        display: inline-block;
+          form {
+            position: relative;
+          }
+          button {
+            position: absolute;
+            top: 1px;
+            right: 0px;
+          }
+        }
+      }
+    }
+  }
 
-.mobile-search {
-  margin-left: 10px;
+  .v-align {
+    @include flexCenter(row);
+    justify-content: flex-start;
+  }
+
+  .hamburger-wrapper {
+    display: none;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
 }

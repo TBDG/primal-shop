@@ -22,7 +22,7 @@ function Shop(props) {
         console.log(aCategory)
         return (
     
-        <div className="col-xs-12 col-xl-4" key={aCategory.id} onClick={() => props.history.push(`/category/${aCategory.id}`)}>
+        <div className="col-xs-12 col-xl-4" key={aCategory.id} onClick={() => props.history.push(`/category/${aCategory.slug}`)}>
             <div className="card-shop">
                 <img src={aCategory.featuredAsset.source}/>
                 <h3>{aCategory.name}</h3>

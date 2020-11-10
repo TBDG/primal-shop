@@ -6,7 +6,7 @@ const DropDown = () => {
     return (
         <div className="dropdown">
             <button 
-                className="btn btn-secondary dropdown-toggle"
+                className="btn btn-secondary btn-sm dropdown-toggle"
                 type="button" 
                 id="dropdownMenuButton" 
                 data-toggle="dropdown" 

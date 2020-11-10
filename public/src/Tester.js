@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from './redux/reducer';
+import DropDown from "./components/DropDown/DropDown";
 
 
 function Tester() {
@@ -15,6 +16,7 @@ function Tester() {
                 <button onClick={() => dispatch(increment(count))}>+</button>
                 <button onClick={() => dispatch(decrement(count))}>-</button>
             </div>
+            <DropDown />
         </div>
 
     );

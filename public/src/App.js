@@ -14,6 +14,7 @@ function App() {
         <div className="App">
             <div className="app-main">
                 <Header/>
+                <Tester />
                 <Router>
                     <Redirect from="/" to="/home/"/>
                     <Route path="/home/" component={Home}/>

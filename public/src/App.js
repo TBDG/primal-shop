@@ -30,7 +30,7 @@ function App() {
                         <Route path="/home/" component={Home}/>
 
                         <Route path="/shop/" component={Shop}/>
-                        <Route path="/category/:id" component={Category}/>
+                        <Route path="/category/:slug" component={Category}/>
                         <Route path="/test/" component={Tester}/>
                     </Switch>    
                 </Router>

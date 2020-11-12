@@ -18,24 +18,23 @@ class DropDown extends React.Component {
     };
 
     updateSelection(clicked) {
-        // if (this.state.selection.includes(clicked)) {
-        //     //remove selection by clicking on it again.
-        //     this.setState(({
-        //         selection: this.state.selection.filter((_,i) => i !== clicked)
-        //     }))    
-        // }
+        if (this.state.selection.includes(clicked)) {
+            //remove selection by clicking on it again.
+            this.setState(({
+                selection: this.state.selection.filter((_,i) => i !== clicked)
+            }))    
+        }
 
-        // if (this.props.multiple === true) {
-        //     //if multiple selections can be made
-        //     this.setState((state) => ({
-        //         selection: [...state.selection, clicked]
-        //     }))
-        // }
+        if (this.props.multiple === true) {
+            //if multiple selections can be made
+            this.setState((state) => ({
+                selection: [...state.selection, clicked]
+            }))
+        }
 
-        // this.setState(({
-        //     selection: [clicked],
-        // }))
-        console.log('pressed' + clicked)
+        this.setState(({
+            selection: [clicked],
+        }))
     }
 
     handleSelected(element) {
@@ -43,10 +42,9 @@ class DropDown extends React.Component {
 
     }
 
+    //label and value are separate. instead of props.items and props.links.
     itemsMap(arr1, arr2) {
-        const handleClick = () => this.updateSelection
-
-        return arr1.map((e,i) => <button key={i} className={this.handleSelected(i)} type='button' href={e} onClick={handleClick} >{arr2[i]}</button>)
+        return arr1.map((e,i) => <button key={i} className={this.handleSelected(i)} type='button' href={e} onClick={() => this.updateSelection(i)} >{arr2[i]}</button>)
     }
 
     render() {

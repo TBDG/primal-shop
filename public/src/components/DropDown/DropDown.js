@@ -2,16 +2,18 @@ import React from 'react';
     
     //when using this component you should set up several required and optional props.
 
-    /*required: 
+    /*required:
+    -props.name- is the name of the menu.
     -props.items- is an array of objects.
         props.items[i].label and props.items[i].value must be properties of each object in the array.
-    -props.name- is the name of the menu.
     
     */
 
     /*optional:
     -props.multiple- allows multiple selections to be highlighted and output.
         Set as multiple='true' if used.
+    -props.clear- adds a button to clear all selections at once
+        Set as clear='true' if used.
         
     */
 
@@ -22,38 +24,58 @@ class DropDown extends React.Component {
             selection: [],
         }
         this.itemsMap = this.itemsMap.bind(this);
+        this.clear = this.clear.bind(this);
+        this.handleClear = this.handleClear.bind(this);
         this.updateSelection = this.updateSelection.bind(this);
-        this.handleSelected = this.handleSelected.bind(this);
     };
 
     updateSelection(clicked) {
         if (this.state.selection.includes(clicked)) {
             //remove selection by clicking on it again.
             this.setState(({
-                selection: this.state.selection.filter((_,i) => i !== clicked)
-            }))    
+                selection: this.state.selection.filter(i => i !== clicked)
+            })); 
+            return;
         }
 
         if (this.props.multiple === 'true') {
             //if multiple selections can be made
             this.setState((state) => ({
                 selection: [...state.selection, clicked]
-            }))
+            }));
+            return;
         }
 
         this.setState(({
             selection: [clicked],
-        }))
+        }));
+        return;
     }
 
-    handleSelected(element) {
-        return this.state.selection.includes(element) ? 'dropdown-item active' : 'dropdown-item';
+    clear() {
+        const clearClassNameToggle = () => this.state.selection.length > 0 ? 'dropdown-item' : 'dropdown-item disabled';
 
+        if (this.props.clear === 'true') {
+            return (
+                <div>
+                    <button className={clearClassNameToggle()} type='button' value='clear' onClick={() => this.handleClear()} >Clear</button>
+                    <div className='dropdown-divider' ></div>
+                </div>
+            )
+        }    
     }
 
-    //label and value are separate. instead of props.items and props.links.
+    handleClear() {
+        this.setState(({
+            selection: [],
+        }));
+        return;
+    }
+
     itemsMap(items) {
-        return items.map((e,i) => <button key={i} className={this.handleSelected(i)} type='button' value={e.value} onClick={() => this.updateSelection(i)} >{e.label}</button>)
+        const itemsClassNameToggle = (element) => this.state.selection.includes(element) ? 'dropdown-item active' : 'dropdown-item';
+
+        return items.map((e,i) => <button key={i} className={itemsClassNameToggle(i)} type='button' value={e.value} onClick={() => this.updateSelection(i)} >{e.label}</button>)
     }
 
     render() {
@@ -73,6 +95,7 @@ class DropDown extends React.Component {
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                 >
+                    {this.clear()}
                     {this.itemsMap(this.props.items)}
                 </div>
             </div>

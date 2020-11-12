@@ -23,7 +23,8 @@ function Tester() {
                     {label: 'option3', value: 'option3'},
                 ]}
                 name='test menu'
-                multiple='true' 
+                multiple='true'
+                // clear='true' 
             />
         </div>
 

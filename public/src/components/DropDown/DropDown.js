@@ -2,9 +2,18 @@ import React from 'react';
     
     //when using this component you should set up several required and optional props.
 
-    /*use arrays -props.links- and -props.items- as attributes when using this component, these are used for each item. props.items[0] and props.links[0] are a pair, and so on. use -props.name- for the name of the menu.*/
+    /*required: 
+    -props.items- is an array of objects.
+        props.items[i].label and props.items[i].value must be properties of each object in the array.
+    -props.name- is the name of the menu.
+    
+    */
 
-    /*you can set the optional attribute -props.multiple- to true. if you do so, this allows multiple selections to be highlighted and output by the pulldown. */
+    /*optional:
+    -props.multiple- allows multiple selections to be highlighted and output.
+        Set as multiple='true' if used.
+        
+    */
 
 class DropDown extends React.Component {
     constructor(props) {
@@ -25,7 +34,7 @@ class DropDown extends React.Component {
             }))    
         }
 
-        if (this.props.multiple === true) {
+        if (this.props.multiple === 'true') {
             //if multiple selections can be made
             this.setState((state) => ({
                 selection: [...state.selection, clicked]
@@ -43,8 +52,8 @@ class DropDown extends React.Component {
     }
 
     //label and value are separate. instead of props.items and props.links.
-    itemsMap(arr1, arr2) {
-        return arr1.map((e,i) => <button key={i} className={this.handleSelected(i)} type='button' href={e} onClick={() => this.updateSelection(i)} >{arr2[i]}</button>)
+    itemsMap(items) {
+        return items.map((e,i) => <button key={i} className={this.handleSelected(i)} type='button' value={e.value} onClick={() => this.updateSelection(i)} >{e.label}</button>)
     }
 
     render() {
@@ -64,7 +73,7 @@ class DropDown extends React.Component {
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                 >
-                    {this.itemsMap(this.props.links,this.props.items)}
+                    {this.itemsMap(this.props.items)}
                 </div>
             </div>
         )

@@ -16,7 +16,15 @@ function Tester() {
                 <button onClick={() => dispatch(increment(count))}>+</button>
                 <button onClick={() => dispatch(decrement(count))}>-</button>
             </div>
-            <DropDown items={['option1','option2','option3']} links={['#','#','#',]} multiple={true} name='test menu'/>
+            <DropDown 
+                items= {[
+                    {label: 'option1', value: 'option1'},
+                    {label: 'option2', value: 'option2'},
+                    {label: 'option3', value: 'option3'},
+                ]}
+                name='test menu'
+                multiple='true' 
+            />
         </div>
 
     );

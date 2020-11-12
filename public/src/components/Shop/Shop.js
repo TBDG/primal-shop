@@ -1,19 +1,23 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import http from "../../services/http";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
+
 
 
 function Shop(props) {
 
     console.log(props)
 
-
     let categories = useSelector(state => state.categories)
-    
-    if (categories.length === 0) {
+
+    useEffect(() => {
         http.getShopCategories();
-    }
+    }, [])
+    
+    // if (categories.length === 0) {
+    //     http.getShopCategories();
+    // }
     console.log(categories);
 
 

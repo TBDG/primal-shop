@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react'
 import http from "../../services/http";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
@@ -9,9 +9,14 @@ function Category(props) {
 
     let products = useSelector(state => state.products)
     
-    if (products.length === 0) {
+    useEffect(() => {
         http.getProductsByCategorySlug(props.match.params.slug);
-    }
+    }, [props.match.params.slug])
+    
+    
+    // if (products.length === 0) {
+    //     http.getProductsByCategorySlug(props.match.params.slug);
+    // }
     console.log('products', products);
 
 

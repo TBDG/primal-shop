@@ -95,8 +95,10 @@ class DropDown extends React.Component {
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                 >
-                    {this.clear()}
-                    {this.itemsMap(this.props.items)}
+                    <form>
+                        {this.clear()}
+                        {this.itemsMap(this.props.items)}
+                    </form>
                 </div>
             </div>
         )

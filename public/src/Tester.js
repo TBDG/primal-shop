@@ -24,7 +24,7 @@ function Tester() {
                 ]}
                 name='test menu'
                 multiple='true'
-                // clear='true' 
+                clear='true' 
             />
         </div>
 

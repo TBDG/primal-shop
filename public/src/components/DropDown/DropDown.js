@@ -6,14 +6,15 @@ import React from 'react';
     -props.name- is the name of the menu.
     -props.items- is an array of objects.
         props.items[i].label and props.items[i].value must be properties of each object in the array.
-    
+    -props.callback- allows parent to access selected values, parent can also clear.
+        to use, add this method to parent:
+            
+        set as callback={this.dropDownCallback}
     */
 
     /*optional:
     -props.multiple- allows multiple selections to be highlighted and output.
-        Set as multiple='true' if used.
-    -props.clear- adds a button to clear all selections at once
-        Set as clear='true' if used.
+        Set as multiple='true' if used. also adds a clear button.
         
     */
 
@@ -27,6 +28,7 @@ class DropDown extends React.Component {
         this.clear = this.clear.bind(this);
         this.handleClear = this.handleClear.bind(this);
         this.updateSelection = this.updateSelection.bind(this);
+        
     };
 
     updateSelection(clicked) {
@@ -55,7 +57,7 @@ class DropDown extends React.Component {
     clear() {
         const clearClassNameToggle = () => this.state.selection.length > 0 ? 'dropdown-item' : 'dropdown-item disabled';
 
-        if (this.props.clear === 'true') {
+        if (this.props.multiple === 'true') {
             return (
                 <div>
                     <button className={clearClassNameToggle()} type='button' value='clear' onClick={() => this.handleClear()} >Clear</button>
@@ -76,6 +78,10 @@ class DropDown extends React.Component {
         const itemsClassNameToggle = (element) => this.state.selection.includes(element) ? 'dropdown-item active' : 'dropdown-item';
 
         return items.map((e,i) => <button key={i} className={itemsClassNameToggle(i)} type='button' value={e.value} onClick={() => this.updateSelection(i)} >{e.label}</button>)
+    }
+
+    sendDropDownData = () => {
+        this.props.callback(this.state.selection)
     }
 
     render() {

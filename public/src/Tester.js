@@ -25,7 +25,7 @@ class Tester extends React.Component {
         const count = useSelector(state => state.count);
         const dispatch = useDispatch();
 
-        return (
+        return (           
             <div>
                 <h1> Counter {count} </h1>
                 <div className="Tester">

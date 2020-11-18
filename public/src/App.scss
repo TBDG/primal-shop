@@ -3,12 +3,15 @@
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
-@import "variables_&_mixins";
+@import "variables-and-mixins";
 
 
 @import 'components/Header/_Header.scss';
 @import 'components/Footer/_Footer.scss';
 
+
+@import 'components/Shop/_Shop.scss';
+@import 'components/Category/_Category.scss';
 
 html, body {
     height: 100%;

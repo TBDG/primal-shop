@@ -28,15 +28,15 @@ class DropDown extends React.Component {
         this.clear = this.clear.bind(this);
         this.handleClear = this.handleClear.bind(this);
         this.updateSelection = this.updateSelection.bind(this);
-        
+        this.sendDropDownData = this.sendDropDownData.bind(this);
     };
 
     updateSelection(clicked) {
         if (this.state.selection.includes(clicked)) {
             //remove selection by clicking on it again.
-            this.setState(({
+            this.setState({
                 selection: this.state.selection.filter(i => i !== clicked)
-            })); 
+            }, this.sendDropDownData); 
             return;
         }
 
@@ -44,13 +44,13 @@ class DropDown extends React.Component {
             //if multiple selections can be made
             this.setState((state) => ({
                 selection: [...state.selection, clicked]
-            }));
+            }),this.sendDropDownData);
             return;
         }
 
-        this.setState(({
+        this.setState({
             selection: [clicked],
-        }));
+        },this.sendDropDownData);       
         return;
     }
 
@@ -68,19 +68,20 @@ class DropDown extends React.Component {
     }
 
     handleClear() {
-        this.setState(({
+        this.setState({
             selection: [],
-        }));
+        },this.sendDropDownData);
         return;
     }
 
     itemsMap(items) {
         const itemsClassNameToggle = (element) => this.state.selection.includes(element) ? 'dropdown-item active' : 'dropdown-item';
 
-        return items.map((e,i) => <button key={i} className={itemsClassNameToggle(i)} type='button' value={e.value} onClick={() => this.updateSelection(i)} >{e.label}</button>)
+        return items.map((e,i) => <button key={i} className={itemsClassNameToggle(e.value)} type='button' value={e.value} onClick={() => this.updateSelection(e.value)} >{e.label}</button>)
     }
 
-    sendDropDownData = () => {
+    sendDropDownData() {
+        console.log(this.state)
         this.props.callback(this.state.selection)
     }
 

@@ -1,16 +1,20 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import http from "../../services/http";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 
 function Category(props) {
 
 
     let products = useSelector(state => state.products)
+    const [loaded, setLoaded] = useState(false);
     
     useEffect(() => {
-        http.getProductsByCategorySlug(props.match.params.slug);
+        http.getProductsByCategorySlug(props.match.params.slug).then(() => {
+            setLoaded(true)
+        });
     }, [props.match.params.slug])
     
     
@@ -74,15 +78,23 @@ function Category(props) {
 
     return (
         <div>
+            {loaded ? (
              <div className="row">
                 <div className="container">
                     <div className="row">
 
                         {productsList}
+                        
 
                     </div>{/* End of Row */}
                 </div>
-            </div>
+            </div>)
+            : (
+                <div className="loader">
+                    <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
+                </div>                  
+            )}
+
         </div>
     )
 }

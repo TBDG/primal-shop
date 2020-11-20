@@ -34,3 +34,9 @@ html, body {
 .app-footer {
     flex-shrink: 0;
 }
+
+.loader {
+    @include flexCenter(row);
+    width: 100%;
+    padding-top: 40px;
+}

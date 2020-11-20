@@ -3,6 +3,7 @@ import http from "../../services/http";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 import Loader from "react-loader-spinner";
+import Spinner from "../Spinner/Spinner"
 
 
 function Category(props) {
@@ -78,22 +79,17 @@ function Category(props) {
 
     return (
         <div>
-            {loaded ? (
+            
              <div className="row">
                 <div className="container">
                     <div className="row">
 
                         {productsList}
-                        
+                        <Spinner loaded={loaded} />
 
                     </div>{/* End of Row */}
                 </div>
-            </div>)
-            : (
-                <div className="loader">
-                    <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
-                </div>                  
-            )}
+            </div>
 
         </div>
     )

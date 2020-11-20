@@ -12,6 +12,7 @@
 
 @import 'components/Shop/_Shop.scss';
 @import 'components/Category/_Category.scss';
+@import 'components/Spinner/_Spinner.scss';
 
 html, body {
     height: 100%;
@@ -35,8 +36,4 @@ html, body {
     flex-shrink: 0;
 }
 
-.loader {
-    @include flexCenter(row);
-    width: 100%;
-    padding-top: 40px;
-}
+

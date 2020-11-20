@@ -10,13 +10,13 @@ function Spinner(props) {
     return (
         <div>
             
-            {props.loaded ?  (
+            {props.loaded === false ? (
+                    <div className="loader">
+                         <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
+                     </div>
+                ): (
                     <div>
                         
-                    </div>
-                ):  (
-                    <div className="modal">
-                        <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
                     </div>
                 )
         

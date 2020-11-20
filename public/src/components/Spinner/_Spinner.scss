@@ -1,15 +1,13 @@
-.modal {
-  display: absolute;
-  top: 0;
-  left: 0;
-  width: 1000px;
-  height: 1000px;
-  background-color: green;
-}
+
 
 .loader {
   @include flexCenter(row);
   width: 100%;
-  padding-top: 40px;
   color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.7)
 }

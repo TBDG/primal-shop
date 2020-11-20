@@ -13,9 +13,10 @@ function Category(props) {
     const [loaded, setLoaded] = useState(false);
     
     useEffect(() => {
-        http.getProductsByCategorySlug(props.match.params.slug).then(() => {
+        http.getProductsByCategorySlug(props.match.params.slug).then();
+         setTimeout(() => {
             setLoaded(true)
-        });
+         }, 1000)
     }, [props.match.params.slug])
     
     
@@ -85,11 +86,12 @@ function Category(props) {
                     <div className="row">
 
                         {productsList}
-                        <Spinner loaded={loaded} />
 
                     </div>{/* End of Row */}
                 </div>
             </div>
+
+            <Spinner loaded={loaded} />
 
         </div>
     )

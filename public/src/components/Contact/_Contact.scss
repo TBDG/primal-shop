@@ -1,0 +1,32 @@
+.contactForm {
+
+  .submit {
+    background-color: $secondaryColor;
+    color: $mainColor;
+    border: 1px solid $mainColor;
+    margin: 20px 0px;
+    padding: 10px 30px;
+    display: inline-block;
+  }
+
+  .submit:hover {
+    background-color: $mainColor;
+    color: $secondaryColor;
+    border-color: $secondaryColor;
+  }
+
+  input, textarea{
+    padding: 10px 20px;
+    margin: 10px 0px;
+  }
+
+
+}
+
+.blockHeading{
+    padding: 10px;
+    background-color: $secondaryColor;
+    margin: 20px 0px;
+    color: $mainColor;
+}
+

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from './redux/reducer';
 import DropDown from "./components/DropDown/DropDown";
@@ -7,7 +7,9 @@ function Tester() {
     const [dropDown, setDropDown] = useState([]);
     const dropDownCallback = (dropDownData)  => {
         setDropDown([...dropDownData])
-    }
+    }   
+    const clearDropDown = useRef(null);
+    const triggerDropDownClear = () => clearDropDown.current.handleClear()
 
     const count = useSelector(state => state.count);
     const dispatch = useDispatch();
@@ -29,8 +31,10 @@ function Tester() {
                 name='test menu'
                 callback={dropDownCallback}
                 multiple='true'
+                ref={clearDropDown}
             />
             <h1>Selection: {dropDown}</h1>
+            <button className='btn btn-primary' onClick={() => triggerDropDownClear()} >clear</button>
         </div>
 
     );

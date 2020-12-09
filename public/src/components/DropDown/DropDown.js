@@ -33,8 +33,8 @@ import React from 'react';
             const dropDownCallback = (dropDownData)  => {
                 setDropDown([...dropDownData])
             }
-            const clearDropDown = useRef(null);
-            const triggerDropDownClear = () => clearDropDown.current.handleClear()
+            const dropDownRef = useRef(null);
+            const triggerDropDownClear = () => dropDownRef.current.handleClear()
 
         example DropDown component in the parent return statement:
             <DropDown 
@@ -46,7 +46,7 @@ import React from 'react';
                 name='test menu'
                 callback={dropDownCallback}
                 multiple='true'
-                ref={clearDropDown}
+                ref={dropDownRef}
             />
             
         to clear from the parent, call triggerDropDownClear()

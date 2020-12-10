@@ -16,6 +16,7 @@ function App() {
         <div className="App">
             <div className="app-main">
                 <Header/>
+                <Tester />
                 <Router>
                     <Switch>    
                         <Route

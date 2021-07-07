@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer.js';
 import Tester from "./Tester";
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
+import Contact from './components/Contact/Contact';
 import Category from './components/Category/Category';
 
 
@@ -32,6 +33,7 @@ function App() {
 
                         <Route path="/shop/" component={Shop}/>
                         <Route path="/category/:slug" component={Category}/>
+                        <Route path="/contact/" component={Contact}/>
                         <Route path="/test/" component={Tester}/>
                     </Switch>    
                 </Router>

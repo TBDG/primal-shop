@@ -1,16 +1,22 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import http from "../../services/http";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
+import Loader from "react-loader-spinner";
+import Spinner from "../Spinner/Spinner"
 
 
 function Category(props) {
 
 
     let products = useSelector(state => state.products)
+    const [loaded, setLoaded] = useState(false);
     
     useEffect(() => {
-        http.getProductsByCategorySlug(props.match.params.slug);
+        http.getProductsByCategorySlug(props.match.params.slug).then();
+         setTimeout(() => {
+            setLoaded(true)
+         }, 1000)
     }, [props.match.params.slug])
     
     
@@ -74,6 +80,7 @@ function Category(props) {
 
     return (
         <div>
+            
              <div className="row">
                 <div className="container">
                     <div className="row">
@@ -83,6 +90,9 @@ function Category(props) {
                     </div>{/* End of Row */}
                 </div>
             </div>
+
+            <Spinner loaded={loaded} />
+
         </div>
     )
 }
